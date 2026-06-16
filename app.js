@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   async function loadConfig() {
     try {
-      const response = await fetch('config.json');
+      const response = await fetch('config.json?t=' + Date.now());
       state.config = await response.json();
       renderConfig();
       startLiveStreamChecker();
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadArticles() {
     try {
-      const response = await fetch('articles.json');
+      const response = await fetch('articles.json?t=' + Date.now());
       state.articles = await response.json();
       renderArticlesList();
       // Trigger routing now that articles metadata is ready
