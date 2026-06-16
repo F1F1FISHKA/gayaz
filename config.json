@@ -1,0 +1,51 @@
+{
+  "bloggerName": "Волшебник-73",
+  "bio": "Персональный блог и архив статей. Здесь я пишу о стриминге, софте и технологиях. Следите за обновлениями в соцсетях.",
+  "youtubeChannel": "@волшебник-73",
+  "youtubeChannelId": "UCX2TUwtdkEUy7bb0uGK1h3g",
+  "socialLinks": [
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@волшебник-73",
+      "icon": "youtube",
+      "description": "Стримы, советы, истории из жизни, философия",
+      "borderColor": "#EF4444"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://t.me/volshebno73",
+      "icon": "telegram",
+      "description": "Анонсы стримов, общение, важные новости",
+      "borderColor": "#3B82F6"
+    },
+    {
+      "name": "VKontakte",
+      "url": "https://vk.com/id778968448?from=search",
+      "icon": "vk",
+      "description": "Я в ВК",
+      "borderColor": "#2563EB"
+    },
+    {
+      "name": "Reddit",
+      "url": "https://www.reddit.com/r/wizard_gayaz/",
+      "icon": "reddit",
+      "description": "Мой сабреддит",
+      "borderColor": "#FF4500"
+    },
+    {
+      "name": "DonatePay",
+      "url": "https://new.donatepay.ru/@1482024",
+      "icon": "hand-holding-usd",
+      "description": "Помочь финансово волшебнику",
+      "borderColor": "#10B981"
+    },
+    {
+      "name": "Реквизиты",
+      "url": "#requisites",
+      "icon": "credit-card",
+      "description": "Прямой перевод на карту",
+      "borderColor": "#F59E0B"
+    }
+  ],
+  "checkIntervalMs": 30000
+}

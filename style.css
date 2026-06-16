@@ -1,0 +1,936 @@
+/* ==========================================================================
+   MINIMALIST DESIGN SYSTEM (COOL SLATE PALETTE)
+   ========================================================================== */
+:root {
+  /* Colors */
+  --bg-deep: #0b0f19;       /* Deep Cool Navy */
+  --bg-surface: #111827;    /* Slate Dark Card */
+  --border-color: #1f2937;  /* Clean Slate Border */
+  --border-hover: #38bdf8;   /* Cool Light Blue Border */
+  
+  --text-primary: #f3f4f6;  /* Neutral Light Gray */
+  --text-secondary: #9ca3af;/* Muted Cool Gray */
+  --text-muted: #6b7280;    /* Dark Muted Gray */
+  
+  /* Cool Accents (No Gradients) */
+  --primary: #38bdf8;       /* Cool Sky Blue */
+  --accent: #0284c7;        /* Deeper Sky Blue */
+  --live-red: #ef4444;      /* Alert Red */
+  
+  /* Dimensions & Rounding (Minimal & Crisp) */
+  --sidebar-width: 300px;
+  --header-height: 56px;
+  --border-radius: 4px;     /* Sharp borders, not overly rounded */
+  --transition: 0.15s ease-in-out;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+/* Simple, standard scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: var(--border-radius);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+h1, h2, h3, h4 {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.text-accent {
+  color: var(--primary);
+}
+
+/* Minimalist Button Styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #0b0f19;
+  border: 1px solid var(--primary);
+}
+.btn-primary:hover {
+  background: #7dd3fc;
+  border-color: #7dd3fc;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background: #1f2937;
+  border-color: var(--text-secondary);
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius);
+}
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.btn-icon-sm {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.btn-success {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.btn-success:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.btn-link {
+  color: var(--primary);
+  background: transparent;
+  border: none;
+  text-decoration: none;
+}
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   APP CONTAINER
+   ========================================================================== */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Header (Clean & Flat) */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: #0b0f19;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mobile-header .logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SIDEBAR (ARTICLES INDEX)
+   ========================================================================== */
+.sidebar {
+  width: var(--sidebar-width);
+  background: #0f172a;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+  z-index: 90;
+}
+
+.sidebar-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-card {
+  text-align: left;
+}
+
+.avatar-container {
+  display: none; /* Removed avatars/complex graphics for extreme minimalism */
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.profile-bio {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.nav-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Minimalist Article List Item */
+.article-item {
+  display: block;
+  padding: 10px 12px;
+  background: transparent;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.article-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--border-color);
+}
+
+.article-item.active {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.article-item-title {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.article-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.article-item-tags {
+  display: flex;
+  gap: 4px;
+}
+
+.tag-pill {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.tag-pill::before {
+  content: '#';
+}
+
+.sidebar-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   MAIN CONTENT & VIEWS
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  background-color: transparent;
+}
+
+.view {
+  display: none;
+  padding: 50px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.view.active {
+  display: block;
+}
+
+/* --- Home Hub --- */
+#homeView {
+  max-width: 600px;
+  margin: 0; /* Align left next to the sidebar */
+}
+
+.hero-section {
+  text-align: left;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Social Grid Styles (Minimal human design) */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.social-card {
+  padding: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.social-card:hover {
+  border-color: var(--border-hover);
+  background: #1f2937;
+}
+
+.social-icon-wrapper {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.social-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.social-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.social-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.social-arrow {
+  display: none; /* Cleaned up to avoid clutter */
+}
+
+/* --- Article Reader View --- */
+.article-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.article-date {
+  color: var(--text-muted);
+}
+
+/* Reading Progress Bar (Very thin, cool blue) */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--primary);
+  width: 0%;
+  z-index: 200;
+}
+
+/* Markdown Typography Styles */
+.markdown-body {
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.markdown-body h1 {
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 6px;
+}
+
+.markdown-body h2 {
+  font-size: 1.4rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.15rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1.2em;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-bottom: 1.2em;
+  padding-left: 1.5em;
+}
+
+.markdown-body li {
+  margin-bottom: 0.4em;
+}
+
+.markdown-body blockquote {
+  padding: 8px 16px;
+  border-left: 3px solid var(--border-hover);
+  background: rgba(255, 255, 255, 0.01);
+  color: var(--text-secondary);
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.markdown-body code {
+  font-family: SFMono-Regular, Consolas, monospace;
+  font-size: 0.85em;
+  background: #1f2937;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.markdown-body pre {
+  background: #111827;
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+
+.markdown-body th, .markdown-body td {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.markdown-body th {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ==========================================================================
+   LIVE STREAM BANNER
+   ========================================================================== */
+.live-alert {
+  display: flex;
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  z-index: 2000;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px 24px;
+  border-radius: var(--border-radius);
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 30px rgba(220, 38, 38, 0.2);
+  animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from { transform: translate(-50%, -100%); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.live-alert-content {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.live-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--live-red);
+}
+
+.live-dot.pulse {
+  /* Simple blink */
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.live-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--live-red);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+.live-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.live-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.live-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.live-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   INLINE VIDEO PLAYER
+   ========================================================================== */
+.inline-player-container {
+  margin-top: 40px;
+  width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   MODAL COMPONENT
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: #111827;
+  border: 1px solid var(--border-hover);
+  border-radius: var(--border-radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 10000;
+  animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal-body {
+  padding: 0;
+  background: #0f172a;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+
+/* ==========================================================================
+   DEBUG/SIMULATION FLOATING DASHBOARD
+   ========================================================================== */
+.debug-panel {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 250px;
+  background: #111827;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  z-index: 1000;
+  font-size: 0.8rem;
+}
+
+.debug-header {
+  background: #1f2937;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.debug-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.debug-panel.collapsed .debug-body {
+  display: none;
+}
+
+.debug-desc {
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.debug-info {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 800px) {
+  .app-container {
+    flex-direction: column;
+    padding-top: var(--header-height);
+  }
+  
+  .mobile-header {
+    display: flex;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .view {
+    padding: 24px 16px;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .live-alert-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  .live-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   ANIMATED SPLIT BACKGROUND COLLAGE
+   ========================================================================== */
+.split-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none; /* Let clicks pass through to the main content where appropriate */
+}
+
+.bg-collage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+  width: 55%; /* Collage takes up right half */
+  height: 100%;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  pointer-events: auto; /* Re-enable pointer events for hover effect on images */
+  /* Fade out towards the left */
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+}
+
+.collage-track {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+  animation: scrollVertical 40s linear infinite;
+}
+
+.reverse-track {
+  animation: scrollVerticalReverse 45s linear infinite;
+  margin-top: -50%;
+}
+
+@keyframes scrollVertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); } /* Scrolls exactly half its height containing duplicated items */
+}
+
+@keyframes scrollVerticalReverse {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.collage-item {
+  width: 100%;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  opacity: 0.6;
+  filter: grayscale(40%);
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.collage-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  position: relative;
+}
+
+/* Suspend animation on hover of any item */
+.bg-collage:hover .collage-track {
+  animation-play-state: paused;
+}
+
+.fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(11, 15, 25, 0) 30%, rgba(11, 15, 25, 1) 65%);
+  pointer-events: none;
+}
+
+.split-bg-curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 65%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .bg-collage {
+    width: 100%;
+    opacity: 0.3;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+  }
+  .fade-overlay {
+    background: linear-gradient(to bottom, rgba(11, 15, 25, 0) 0%, rgba(11, 15, 25, 1) 70%);
+  }
+  .split-bg-curve {
+    display: none; /* Hide curve on mobile for cleaner look */
+  }
+}

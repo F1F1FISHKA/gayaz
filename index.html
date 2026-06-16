@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Блог Волшебника-73</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Split Background: Scrolling Collage with Curved Fade -->
+  <div class="split-bg-container">
+    <div class="bg-collage">
+      <div class="collage-track">
+        <img src="imgs/kislinka.png" alt="Collage" class="collage-item">
+        <img src="imgs/skorlupa.png" alt="Collage" class="collage-item">
+        <img src="imgs/гигачад.png" alt="Collage" class="collage-item">
+        <img src="imgs/гояз.png" alt="Collage" class="collage-item">
+        <img src="imgs/гояз2.png" alt="Collage" class="collage-item">
+        <img src="imgs/гоязь.png" alt="Collage" class="collage-item">
+        <img src="imgs/гуьаобябер.png" alt="Collage" class="collage-item">
+        <img src="imgs/диэл виз ит.png" alt="Collage" class="collage-item">
+        <!-- Duplicated for seamless infinite scrolling -->
+        <img src="imgs/kislinka.png" alt="Collage" class="collage-item">
+        <img src="imgs/skorlupa.png" alt="Collage" class="collage-item">
+        <img src="imgs/гигачад.png" alt="Collage" class="collage-item">
+        <img src="imgs/гояз.png" alt="Collage" class="collage-item">
+        <img src="imgs/гояз2.png" alt="Collage" class="collage-item">
+        <img src="imgs/гоязь.png" alt="Collage" class="collage-item">
+        <img src="imgs/гуьаобябер.png" alt="Collage" class="collage-item">
+        <img src="imgs/диэл виз ит.png" alt="Collage" class="collage-item">
+      </div>
+      <div class="collage-track reverse-track">
+        <img src="imgs/дцп.png" alt="Collage" class="collage-item">
+        <img src="imgs/дцп2.png" alt="Collage" class="collage-item">
+        <img src="imgs/кислинка.png" alt="Collage" class="collage-item">
+        <img src="imgs/мьюинг.png" alt="Collage" class="collage-item">
+        <img src="imgs/с коляном.png" alt="Collage" class="collage-item">
+        <img src="imgs/с лысым пидьооамром.png" alt="Collage" class="collage-item">
+        <img src="imgs/свиноьта.png" alt="Collage" class="collage-item">
+        <img src="imgs/стивен хокинг(.png" alt="Collage" class="collage-item">
+        <!-- Duplicated -->
+        <img src="imgs/дцп.png" alt="Collage" class="collage-item">
+        <img src="imgs/дцп2.png" alt="Collage" class="collage-item">
+        <img src="imgs/кислинка.png" alt="Collage" class="collage-item">
+        <img src="imgs/мьюинг.png" alt="Collage" class="collage-item">
+        <img src="imgs/с коляном.png" alt="Collage" class="collage-item">
+        <img src="imgs/с лысым пидьооамром.png" alt="Collage" class="collage-item">
+        <img src="imgs/свиноьта.png" alt="Collage" class="collage-item">
+        <img src="imgs/стивен хокинг(.png" alt="Collage" class="collage-item">
+      </div>
+    </div>
+    
+    <!-- Fade Overlay to blend collage into the solid background -->
+    <div class="fade-overlay"></div>
+    
+    <!-- SVG Curved Line Separator -->
+    <svg class="split-bg-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M100,0 Q60,50 100,100 L0,100 L0,0 Z" fill="var(--bg-deep)"></path>
+    </svg>
+  </div>
+
+  <!-- Reading Progress Bar (only visible when viewing articles) -->
+  <div id="progressBar" class="progress-bar"></div>
+
+  <!-- Live Stream Alert Banner -->
+  <div id="liveAlert" class="live-alert hidden">
+    <div class="live-alert-glow"></div>
+    <div class="live-alert-content">
+      <div class="live-status">
+        <span class="live-dot pulse"></span>
+        <span class="live-tag">LIVE</span>
+      </div>
+      <div class="live-text">
+        <span class="live-title">Волшебник-73 сейчас в эфире!</span>
+        <span class="live-subtitle">Присоединяйтесь к трансляции.</span>
+      </div>
+      <div class="live-actions">
+        <button id="btnWatchLive" class="btn btn-primary btn-glow">Смотреть стрим</button>
+        <button id="btnCloseAlert" class="btn btn-icon" aria-label="Закрыть"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <button id="btnToggleSidebar" class="btn btn-icon" aria-label="Открыть меню">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="logo">Волшебник-73</h1>
+      <div id="mobileLiveIndicator" class="mobile-live-indicator hidden">
+        <span class="live-dot pulse"></span>
+      </div>
+    </header>
+
+    <!-- Sidebar Container -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="profile-card">
+          <div class="avatar-container">
+            <!-- Simulated Avatar with initials or stylized icon -->
+            <div class="avatar-fallback">✨</div>
+            <div id="profileLiveRing" class="live-ring"></div>
+          </div>
+          <h2 id="bloggerName" class="profile-name">Волшебник-73</h2>
+          <p id="bloggerBio" class="profile-bio">Загрузка информации...</p>
+        </div>
+        <button id="btnCloseSidebar" class="btn btn-icon mobile-only" aria-label="Закрыть меню">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-title">Статьи</div>
+        <div id="articlesList" class="articles-list">
+          <!-- Dynamically populated -->
+          <div class="loading-placeholder">Загрузка статей...</div>
+        </div>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <a href="#home" id="btnGoHomeSidebar" class="btn btn-secondary w-full"><i class="fas fa-home"></i> Главная</a>
+      </footer>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="mainContent" class="main-content">
+      
+      <!-- Home View (Social links Grid) -->
+      <section id="homeView" class="view active">
+        <div class="hero-section">
+          <h1 class="hero-title">Добро пожаловать к <span class="text-accent">Волшебнику-73</span></h1>
+          <p class="hero-subtitle">Официальный хаб, статьи и актуальные социальные сети.</p>
+        </div>
+
+        <div class="social-grid-container">
+          <h2 class="section-title">Мои социальные сети</h2>
+          <div id="socialGrid" class="social-grid">
+            <!-- Dynamically populated from config.json -->
+          </div>
+          
+          <!-- Inline Video Player for Live Stream (Hidden by default) -->
+          <div id="inlinePlayerContainer" class="inline-player-container hidden">
+            <h3 class="section-title"><span class="live-dot pulse"></span> Прямой эфир</h3>
+            <div class="video-wrapper">
+              <iframe id="youtubeIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Article View (Markdown Reader) -->
+      <section id="articleView" class="view">
+        <div class="article-header">
+          <a href="#home" class="btn btn-link btn-back"><i class="fas fa-arrow-left"></i> На главную</a>
+          <div class="article-meta">
+            <span id="articleDate" class="article-date"></span>
+            <span id="articleTags" class="article-tags"></span>
+          </div>
+        </div>
+        <article id="articleContent" class="markdown-body">
+          <!-- Dynamically rendered markdown -->
+        </article>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Requisites Modal -->
+  <div id="requisitesModal" class="modal hidden">
+    <div class="modal-backdrop" onclick="closeRequisitesModal()"></div>
+    <div class="modal-container" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-credit-card"></i> Реквизиты</h3>
+        <button class="btn btn-icon" aria-label="Закрыть" onclick="closeRequisitesModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 24px;">
+        <p style="margin-bottom: 24px; color: #a1a1aa;">Огромное спасибо за вашу финансовую поддержку!</p>
+        <div style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; margin-bottom: 16px; border: 1px solid var(--border-color);">
+          <div style="color: #3B82F6; font-weight: bold; margin-bottom: 8px;">Озон Банк (по номеру телефона)</div>
+          <div style="font-size: 1.25rem; letter-spacing: 1px; font-weight: bold; color: white;">+7 927 988 0173</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <div style="color: #10B981; font-weight: bold; margin-bottom: 8px;">СберБанк (по номеру карты)</div>
+          <div style="font-size: 1.25rem; letter-spacing: 1px; font-weight: bold; color: white;">2202 2081 9618 4254</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Debug Control Panel (Allows user to simulate stream trigger easily) -->
+  <div id="debugPanel" class="debug-panel">
+    <div class="debug-header">
+      <span>Отладка стрима</span>
+      <button id="btnToggleDebug" class="btn btn-icon-sm"><i class="fas fa-chevron-up"></i></button>
+    </div>
+    <div id="debugBody" class="debug-body">
+      <p class="debug-desc">Симулируйте запуск трансляции для тестирования звука и уведомлений:</p>
+      <button id="btnSimulateStream" class="btn btn-success btn-sm w-full">Включить симуляцию</button>
+      <div class="debug-info">
+        Канал: <code>@волшебник-73</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application -->
+  <script src="app.js"></script>
+</body>
+</html>
