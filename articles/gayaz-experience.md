@@ -19,4 +19,4 @@
 
 Пример негативного комментария:
 
-https://github.com/user-attachments/assets/7edccce4-fb42-41a0-b9bd-d0987cfd1b87
+<video src="imgs/зек.mp4" controls style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);"></video>
