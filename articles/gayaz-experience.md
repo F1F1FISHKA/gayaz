@@ -18,5 +18,4 @@
 <img width="432" height="545" alt="с коляном" src="https://github.com/user-attachments/assets/0314d096-41d6-4d77-894d-471a9421bfe0" />
 
 Пример негативного комментария:
-
 <video src="imgs/зек.mp4" controls style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);"></video>
