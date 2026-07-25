@@ -15,7 +15,6 @@
 Задонатить Гаязу на новые очки вы можете во вкладке DonatePay или Реквизиты.
 А пока, прилагаем фото и видеофайлы, в которых очки волшебника его подводят.
 
-<img width="432" height="545" alt="гоязь" src="https://github.com/user-attachments/assets/0314d096-41d6-4d77-894d-471a9421bfe0" />
-<img width="432" height="545" alt="стал дауном" src="https://github.com/user-attachments/assets/0314d096-41d6-4d77-894d-471a9421bfe0" />
-
+<img width="316" height="437" alt="стал дауном" src="https://github.com/user-attachments/assets/846fc722-e4ac-409e-9140-cef702c4e76c" />
+<img width="347" height="428" alt="гоязь" src="https://github.com/user-attachments/assets/66144502-6466-4497-a74a-82b21bf2685d" />
 <video src="imgs/ты как дун выглдиш.mp4" controls style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);"></video>
