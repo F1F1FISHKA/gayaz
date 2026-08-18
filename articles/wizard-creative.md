@@ -15,6 +15,6 @@
 
 И всё таки иногда это смотрится немного комично:
 
-<img width="316" height="437" alt="магия добра" src="https://github.com/user-attachments/assets/846fc722-e4ac-409e-9140-cef702c4e76c" />
+<img width="169" height="163" alt="магия добра" src="https://github.com/user-attachments/assets/b63585f7-dc11-4cb2-abaf-b70363be0022" />
 
 <video src="imgs/паркур.mp4" controls style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);"></video>
